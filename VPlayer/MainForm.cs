@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace VPlayer
@@ -35,15 +36,16 @@ namespace VPlayer
 
             // Set default Text for the ListBox
             listBox1.Items.Add("Drag files here or click [+] to add videos");
-            // listBox1.Items.Add("Video1");
-            // listBox1.Items.Add("Video2");
-            // listBox1.Items.Add("Video3");
-            // listBox1.Items.Add("Video4");
         }
         
         private void bTest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Button Test Video Clicked!");
+            MessageBox.Show("Video List saved. Playback will start in 10 seconds.");
+            for (int i = 0; i < listBox1.Items.Count; i++)
+            {
+                using StreamWriter file = new("WriteLines2.txt", append: true);
+                file.WriteLineAsync("Fourth line");
+            }
         }
         
         private void bAuto_Click(object sender, EventArgs e)

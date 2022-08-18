@@ -1,12 +1,10 @@
 ﻿using System.Windows.Forms;
-using System.Xml;
 
 namespace VPlayer
 {
     
     public class FormHandler
     {
-
         // Variable to check whether the list needs to be cleared or not
         private bool newList = true;
         

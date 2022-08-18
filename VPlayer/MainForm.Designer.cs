@@ -54,7 +54,7 @@ namespace VPlayer
             this.bAuto.Name = "bAuto";
             this.bAuto.Size = new System.Drawing.Size(134, 25);
             this.bAuto.TabIndex = 1;
-            this.bAuto.Text = "Set Video Autostart";
+            this.bAuto.Text = "Autostart Video";
             this.bAuto.UseVisualStyleBackColor = true;
             // 
             // listBox1
