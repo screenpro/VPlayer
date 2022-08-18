@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace VPlayer
@@ -7,14 +6,16 @@ namespace VPlayer
     public partial class MainForm : Form
     {
         
+        // Initialize FormHandler to have its methods available
         FormHandler formHandler = new FormHandler();
         
         public MainForm()
         {
-           
+
+            // Initialize the Form
             InitializeComponent();
 
-            // Create Button controls
+            // Create button controls
             this.Controls.Add(bTest);
             this.Controls.Add(bAuto);
             this.Controls.Add(bPlus);
@@ -23,7 +24,7 @@ namespace VPlayer
             this.Controls.Add(bDown);
             this.Controls.Add(bAbout);
             
-            // Add Button event handlers
+            // Add button event handlers
             bTest.Click += new EventHandler(bTest_Click);
             bAuto.Click += new EventHandler(bAuto_Click);
             bPlus.Click += new EventHandler(bPlus_Click);
@@ -33,12 +34,13 @@ namespace VPlayer
             bAbout.Click += new EventHandler(bAbout_Click);
 
             // Set default Text for the ListBox
-            listBox1.Items.Add("Click here or drag files to add videos");
-            listBox1.Items.Add("Video1");
-            listBox1.Items.Add("Video2");
-            listBox1.Items.Add("Video3");
-            listBox1.Items.Add("Video4");
+            listBox1.Items.Add("Drag files here or click [+] to add videos");
+            // listBox1.Items.Add("Video1");
+            // listBox1.Items.Add("Video2");
+            // listBox1.Items.Add("Video3");
+            // listBox1.Items.Add("Video4");
         }
+        
         private void bTest_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Button Test Video Clicked!");
@@ -78,11 +80,5 @@ namespace VPlayer
         {
             //throw new System.NotImplementedException();
         }
-
-        public void clearItems()
-        {
-            listBox1.Items.Clear();
-        }
-
     }
 }

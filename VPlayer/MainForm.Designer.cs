@@ -71,7 +71,7 @@ namespace VPlayer
             // 
             // bMinus
             // 
-            this.bMinus.Location = new System.Drawing.Point(256, 39);
+            this.bMinus.Location = new System.Drawing.Point(256, 97);
             this.bMinus.Name = "bMinus";
             this.bMinus.Size = new System.Drawing.Size(25, 25);
             this.bMinus.TabIndex = 4;
@@ -80,7 +80,7 @@ namespace VPlayer
             // 
             // bUp
             // 
-            this.bUp.Location = new System.Drawing.Point(256, 68);
+            this.bUp.Location = new System.Drawing.Point(256, 39);
             this.bUp.Name = "bUp";
             this.bUp.Size = new System.Drawing.Size(25, 25);
             this.bUp.TabIndex = 5;
@@ -89,7 +89,7 @@ namespace VPlayer
             // 
             // bDown
             // 
-            this.bDown.Location = new System.Drawing.Point(256, 97);
+            this.bDown.Location = new System.Drawing.Point(256, 68);
             this.bDown.Name = "bDown";
             this.bDown.Size = new System.Drawing.Size(25, 25);
             this.bDown.TabIndex = 6;
@@ -118,6 +118,7 @@ namespace VPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(290, 189);
             this.Controls.Add(this.bPlus);
             this.Controls.Add(this.bAbout);
@@ -129,8 +130,9 @@ namespace VPlayer
             this.Controls.Add(this.bTest);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "MainForm";
-            this.Text = "screenpro VPlayer";
+            this.Text = "screenpro vPlayer";
             this.ResumeLayout(false);
         }
 
