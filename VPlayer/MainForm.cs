@@ -6,32 +6,83 @@ namespace VPlayer
 {
     public partial class MainForm : Form
     {
-        public Button button1;
-        public Button button2;
+        
+        FormHandler formHandler = new FormHandler();
+        
         public MainForm()
         {
+           
             InitializeComponent();
-            button1 = new Button();
-            button1.Size = new Size(80, 40);
-            button1.Location = new Point(20, 20);
-            button1.Text = "Button1";
-            this.Controls.Add(button1);
-            button1.Click += new EventHandler(button1_Click);
 
-            button2 = new Button();
-            button2.Size = new Size(80, 40);
-            button2.Location = new Point(120, 20);
-            button2.Text = "Button2";
-            this.Controls.Add(button2);
-            button2.Click += new EventHandler(button2_Click);
+            // Create Button controls
+            this.Controls.Add(bTest);
+            this.Controls.Add(bAuto);
+            this.Controls.Add(bPlus);
+            this.Controls.Add(bMinus);
+            this.Controls.Add(bUp);
+            this.Controls.Add(bDown);
+            this.Controls.Add(bAbout);
+            
+            // Add Button event handlers
+            bTest.Click += new EventHandler(bTest_Click);
+            bAuto.Click += new EventHandler(bAuto_Click);
+            bPlus.Click += new EventHandler(bPlus_Click);
+            bMinus.Click += new EventHandler(bMinus_Click);
+            bUp.Click += new EventHandler(bUp_Click);
+            bDown.Click += new EventHandler(bDown_Click);
+            bAbout.Click += new EventHandler(bAbout_Click);
+
+            // Set default Text for the ListBox
+            listBox1.Items.Add("Click here or drag files to add videos");
+            listBox1.Items.Add("Video1");
+            listBox1.Items.Add("Video2");
+            listBox1.Items.Add("Video3");
+            listBox1.Items.Add("Video4");
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void bTest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Button 1 Clicked!");
+            MessageBox.Show("Button Test Video Clicked!");
         }
-        private void button2_Click(object sender, EventArgs e)
+        
+        private void bAuto_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Button 2 clicked!");
+            MessageBox.Show("Button Set Video Autostart Clicked!");
         }
+
+        private void bPlus_Click(object sender, EventArgs e)
+        {
+            formHandler.AddItem(listBox1);
+        }
+        
+        private void bMinus_Click(object sender, EventArgs e)
+        {
+            formHandler.RemoveItem(listBox1);
+        }
+        
+        private void bUp_Click(object sender, EventArgs e)
+        {
+            formHandler.MoveItem(-1,listBox1);
+        }
+        
+        private void bDown_Click(object sender, EventArgs e)
+        {
+            formHandler.MoveItem(1,listBox1);
+        }
+        
+        private void bAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Dialog that will show a very short manual as well as an \"About\" section.");
+        }
+        
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        public void clearItems()
+        {
+            listBox1.Items.Clear();
+        }
+
     }
 }
