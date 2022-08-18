@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace VPlayer
 {
@@ -11,9 +12,18 @@ namespace VPlayer
             
         }
 
-        public void setVideoList(String[] vList)
+        public void SetVideoList(String[] vList)
         {
-            // videoList[] = vList[];
+            //int length = vList.GetLength(0);
+            for (int i = 0; i < vList.GetLength(0); i++)
+            {
+                //using StreamWriter file = new("videos.txt", append: true);
+                //file.WriteLine(vList[i]);
+                using (StreamWriter writer = new StreamWriter("./videos.txt"))  
+                {  
+                    writer.WriteLine(vList[i]);
+                }  
+            }
         }
     }
 }

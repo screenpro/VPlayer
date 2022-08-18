@@ -8,7 +8,8 @@ namespace VPlayer
     {
         
         // Initialize FormHandler to have its methods available
-        FormHandler formHandler = new FormHandler();
+        private FormHandler formHandler = new FormHandler();
+        private VideoHandler videoHandler = new VideoHandler();
         
         public MainForm()
         {
@@ -40,12 +41,14 @@ namespace VPlayer
         
         private void bTest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Video List saved. Playback will start in 10 seconds.");
+            int count = listBox1.Items.Count;
+            String[] fileList = new String[listBox1.Items.Count];
+            //MessageBox.Show("Video list saved. Playback will start in 10 seconds.");
             for (int i = 0; i < listBox1.Items.Count; i++)
             {
-                using StreamWriter file = new("WriteLines2.txt", append: true);
-                file.WriteLineAsync("Fourth line");
+                fileList[i] = listBox1.SelectedItem.ToString();
             }
+            videoHandler.SetVideoList(fileList);
         }
         
         private void bAuto_Click(object sender, EventArgs e)
