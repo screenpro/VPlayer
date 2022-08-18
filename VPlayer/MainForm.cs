@@ -41,14 +41,15 @@ namespace VPlayer
         
         private void bTest_Click(object sender, EventArgs e)
         {
-            int count = listBox1.Items.Count;
-            String[] fileList = new String[listBox1.Items.Count];
             //MessageBox.Show("Video list saved. Playback will start in 10 seconds.");
-            for (int i = 0; i < listBox1.Items.Count; i++)
+            int count = formHandler.getListCount();
+            String[] fileList = new String[count];
+            for (int i = 0; i < count; i++)
             {
+                listBox1.SetSelected(i, true);
                 fileList[i] = listBox1.SelectedItem.ToString();
             }
-            videoHandler.SetVideoList(fileList);
+            videoHandler.SetVideoList(fileList, count);
         }
         
         private void bAuto_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ namespace VPlayer
     {
         // Variable to check whether the list needs to be cleared or not
         private bool newList = true;
+        private int listCount = 0;
         
         // Arrays to store file names and file paths
         private string[] files;
@@ -36,6 +37,7 @@ namespace VPlayer
                 for (int i = 0; i < files.Length; i++)
                 {
                     listBox.Items.Add(files[i]);
+                    listCount++;
                 }
             }
         }
@@ -76,6 +78,11 @@ namespace VPlayer
             listBox.Items.Remove(selected);
             listBox.Items.Insert(newIndex, selected);
             listBox.SetSelected(newIndex, true);
+        }
+
+        public int getListCount()
+        {
+            return listCount;
         }
     }
 }
