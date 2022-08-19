@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
 namespace VPlayer
@@ -8,6 +9,7 @@ namespace VPlayer
     public class FileHandler
     {
         private bool init = true;
+        String path = @"c:\temp\MyTest.txt";
         
         public void WriteLine(String line)
         {
@@ -16,7 +18,7 @@ namespace VPlayer
                 File.Delete(@"c:\temp\MyTest.txt");
                 init = false;
             }
-            String path = @"c:\temp\MyTest.txt";
+            // String path = @"c:\temp\MyTest.txt";
 
             // This text is added only once to the file.
             if (!File.Exists(path))
@@ -34,6 +36,31 @@ namespace VPlayer
             // Open the file to read from.
             String readText = File.ReadAllText(path);
             Console.WriteLine(readText);
+        }
+
+        public String[] ReadLine()
+        {
+            int counter = 0;
+            foreach (string line in System.IO.File.ReadLines(path))
+            {
+                counter++;
+            }  
+            String[] videos = new String[counter];            
+            if (!File.Exists(path))
+            {
+                videos[0] = "0";
+                return videos;
+            }
+            else
+            {
+                for (int i = 0; i < counter; i++)
+                // foreach (string line in System.IO.File.ReadLines(path))
+                {
+                    videos[i] =System.IO.File.ReadLines(path).ToString();
+                    System.Console.WriteLine(videos[i]);
+                }
+                return videos;
+            }
         }
 
         public void setInit(bool reinit)

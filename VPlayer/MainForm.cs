@@ -60,6 +60,12 @@ namespace VPlayer
         private void bAuto_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Button Set Video Autostart Clicked!");
+            String[] videoList = fileHandler.ReadLine();
+            if (videoList[0] == "0")
+            {
+                MessageBox.Show("No video configuration found. Please add videos with [+] first.");
+                return;
+            }
         }
 
         private void bPlus_Click(object sender, EventArgs e)
