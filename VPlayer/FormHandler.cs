@@ -41,7 +41,7 @@ namespace VPlayer
                 for (int i = 0; i < files.Length; i++)
                 {
                     listBox.Items.Add(files[i]);
-                    fullPath[i] = paths[i].ToString() + files[i].ToString();
+                    fullPath[i] = paths[i].ToString();
                     listCount++;
                 }
             }
