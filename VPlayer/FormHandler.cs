@@ -56,10 +56,21 @@ namespace VPlayer
             listBox.Items.Remove(selected);
             
             // Check if list is not empty to maintain selection (to prevent an exception)
+            if (listBox.Items.Count == 0)
+            {
+                return;
+            }
+            System.Console.WriteLine(listBox.GetItemText(selected));
+            if (listBox.GetItemText(selected) == "")
+            {
+                int newIndex = listBox.SelectedIndex - 1;
+                listBox.SetSelected(newIndex, true); 
+            }
             if (listBox.Items.Count != 0)
             {
                 listBox.SetSelected(index, true);                
             }
+            
         }
         
         // Moves a list item in the specified direction
