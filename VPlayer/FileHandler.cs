@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -18,7 +19,6 @@ namespace VPlayer
                 File.Delete(@"c:\temp\MyTest.txt");
                 init = false;
             }
-            // String path = @"c:\temp\MyTest.txt";
 
             // This text is added only once to the file.
             if (!File.Exists(path))
@@ -53,10 +53,9 @@ namespace VPlayer
             }
             else
             {
+                videos = File.ReadLines(path).ToArray();
                 for (int i = 0; i < counter; i++)
-                // foreach (string line in System.IO.File.ReadLines(path))
                 {
-                    videos[i] =System.IO.File.ReadLines(path).ToString();
                     System.Console.WriteLine(videos[i]);
                 }
                 return videos;
