@@ -7,9 +7,10 @@ namespace VPlayer
     public partial class MainForm : Form
     {
         
-        // Initialize FormHandler to have its methods available
+        // Initialize handlers to have their methods available
         private FormHandler formHandler = new FormHandler();
         private VideoHandler videoHandler = new VideoHandler();
+        private FileHandler fileHandler = new FileHandler();
         
         public MainForm()
         {
@@ -43,12 +44,16 @@ namespace VPlayer
         {
             //MessageBox.Show("Video list saved. Playback will start in 10 seconds.");
             int count = formHandler.getListCount();
-            String[] fileList = new String[count];
+            String[] fileList = formHandler.getFullPaths();
+            //String[] fileList = new String[count];
             for (int i = 0; i < count; i++)
             {
-                listBox1.SetSelected(i, true);
-                fileList[i] = listBox1.SelectedItem.ToString();
+                // listBox1.SetSelected(i, true);
+                // fileList[i] = listBox1.SelectedItem.ToString();
+                fileHandler.WriteLine(fileList[i]);
             }
+            // fileHandler.setInit(true);
+            // listBox1.ClearSelected();
             videoHandler.SetVideoList(fileList, count);
         }
         

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Windows.Forms;
 
 namespace VPlayer
 {
@@ -10,16 +8,12 @@ namespace VPlayer
         
         public void PlayVideo(String[] videoList)
         {
-            
+            // Code to play video goes here
         }
 
         public void SetVideoList(String[] vList, int count)
         {
-            StreamWriter writer = new StreamWriter("./videos.txt");
-            for (int i = 0; i < count; i++)
-            {
-                writer.WriteLine(vList[i]);
-            }
+            // Probably unnecessary now
         }
     }
 }

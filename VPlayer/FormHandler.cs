@@ -1,8 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace VPlayer
 {
-    
     public class FormHandler
     {
         // Variable to check whether the list needs to be cleared or not
@@ -10,8 +10,9 @@ namespace VPlayer
         private int listCount = 0;
         
         // Arrays to store file names and file paths
-        private string[] files;
-        private string[] paths;
+        private String[] files;
+        private String[] paths;
+        private String[] fullPath;
         
         // Adds file(s) to the list and clears the list if it's the first time a file is added
         public void AddItem(ListBox listBox)
@@ -25,6 +26,9 @@ namespace VPlayer
             {
                 files = openFileDialog1.SafeFileNames;
                 paths = openFileDialog1.FileNames;
+                //fullPath = new String[files.GetLength(0)];
+                fullPath = new String[50];
+                Array.Clear(fullPath, 0,fullPath.Length);
                 
                 // Clear list if it's a new one
                 if (newList)
@@ -37,6 +41,7 @@ namespace VPlayer
                 for (int i = 0; i < files.Length; i++)
                 {
                     listBox.Items.Add(files[i]);
+                    fullPath[i] = paths[i].ToString() + files[i].ToString();
                     listCount++;
                 }
             }
@@ -83,6 +88,11 @@ namespace VPlayer
         public int getListCount()
         {
             return listCount;
+        }
+
+        public String[] getFullPaths()
+        {
+            return fullPath;
         }
     }
 }
