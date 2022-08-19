@@ -52,8 +52,8 @@ namespace VPlayer
                 // fileList[i] = listBox1.SelectedItem.ToString();
                 fileHandler.WriteLine(fileList[i]);
             }
-            // fileHandler.setInit(true);
             // listBox1.ClearSelected();
+            fileHandler.setInit(true);
             videoHandler.SetVideoList(fileList, count);
         }
         
