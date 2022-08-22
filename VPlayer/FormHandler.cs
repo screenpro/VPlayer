@@ -62,7 +62,7 @@ namespace VPlayer
             }
             
             // Check if the last item was removed by comparing index and listBox length
-            if (listBox.Items.Count.ToString() == index.ToString())
+            if (listBox.Items.Count == index)
             {
                 int newIndex = index - 1;
                 listBox.SetSelected(newIndex, true);
