@@ -52,25 +52,24 @@ namespace VPlayer
         {
             object selected = listBox.SelectedItem;
             int index = listBox.SelectedIndex;
-            
+
             listBox.Items.Remove(selected);
-            
+
             // Check if list is not empty to maintain selection (to prevent an exception)
             if (listBox.Items.Count == 0)
             {
                 return;
             }
-            System.Console.WriteLine(listBox.GetItemText(selected));
-            if (listBox.GetItemText(selected) == "")
-            {
-                int newIndex = listBox.SelectedIndex - 1;
-                listBox.SetSelected(newIndex, true); 
-            }
-            if (listBox.Items.Count != 0)
-            {
-                listBox.SetSelected(index, true);                
-            }
             
+            // Check if the last item was removed by comparing index and listBox length
+            if (listBox.Items.Count.ToString() == index.ToString())
+            {
+                int newIndex = index - 1;
+                listBox.SetSelected(newIndex, true);
+                return;
+            }
+            // Otherwise simply reselect the index
+            listBox.SetSelected(index, true);
         }
         
         // Moves a list item in the specified direction
