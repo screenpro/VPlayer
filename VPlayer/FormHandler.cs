@@ -21,8 +21,7 @@ namespace VPlayer
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Multiselect = true;
 
-            if (openFileDialog1.ShowDialog() == 
-                System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 files = openFileDialog1.SafeFileNames;
                 paths = openFileDialog1.FileNames;
@@ -41,7 +40,7 @@ namespace VPlayer
                 for (int i = 0; i < files.Length; i++)
                 {
                     listBox.Items.Add(files[i]);
-                    fullPath[i] = paths[i].ToString();
+                    fullPath[i] = paths[i];
                     listCount++;
                 }
             }
@@ -64,9 +63,9 @@ namespace VPlayer
             // Check if the last item was removed by comparing index and listBox length
             if (listBox.Items.Count == index)
             {
-                int newIndex = index - 1;
-                listBox.SetSelected(newIndex, true);
-                return;
+                index--;
+                //listBox.SetSelected(newIndex, true);
+                //return;
             }
             // Otherwise simply reselect the index
             listBox.SetSelected(index, true);
