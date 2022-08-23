@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace VPlayer
@@ -12,7 +13,8 @@ namespace VPlayer
         // Arrays to store file names and file paths
         private String[] files;
         private String[] paths;
-        private String[] fullPath;
+        private String[] fullPath = new String[50];
+        private Dictionary<String, String> dict = new Dictionary<String, String>();
         
         // Adds file(s) to the list and clears the list if it's the first time a file is added
         public void AddItem(ListBox listBox)
@@ -25,8 +27,6 @@ namespace VPlayer
             {
                 files = openFileDialog1.SafeFileNames;
                 paths = openFileDialog1.FileNames;
-                //fullPath = new String[files.GetLength(0)];
-                fullPath = new String[50];
                 Array.Clear(fullPath, 0,fullPath.Length);
                 
                 // Clear list if it's a new one
@@ -40,6 +40,7 @@ namespace VPlayer
                 for (int i = 0; i < files.Length; i++)
                 {
                     listBox.Items.Add(files[i]);
+                    dict.Add(files[i], paths[i]);
                     fullPath[i] = paths[i];
                     listCount++;
                 }
@@ -99,9 +100,19 @@ namespace VPlayer
             return listCount;
         }
 
+        public void setListMinus()
+        {
+            listCount--;
+        }
+
         public String[] getFullPaths()
         {
             return fullPath;
+        }
+
+        public String getFullPath(String key)
+        {
+            return dict[key];
         }
     }
 }

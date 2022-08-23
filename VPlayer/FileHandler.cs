@@ -1,17 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace VPlayer
 {
     public class FileHandler
     {
         private bool init = true;
-        String path = @"c:\temp\MyTest.txt";
-        
+        private String path = @"c:\temp\MyTest.txt";
+
         public void WriteLine(String line)
         {
             if (init)

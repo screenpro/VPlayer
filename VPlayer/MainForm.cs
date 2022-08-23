@@ -44,17 +44,17 @@ namespace VPlayer
         {
             //MessageBox.Show("Video list saved. Playback will start in 10 seconds.");
             int count = formHandler.getListCount();
-            String[] fileList = formHandler.getFullPaths();
-            //String[] fileList = new String[count];
+            String key;
+            String[] values = new String[count];
             for (int i = 0; i < count; i++)
             {
-                // listBox1.SetSelected(i, true);
-                // fileList[i] = listBox1.SelectedItem.ToString();
-                fileHandler.WriteLine(fileList[i]);
+                listBox1.SetSelected(i, true);
+                key = listBox1.SelectedItem.ToString();
+                values[i] = formHandler.getFullPath(key);
+                fileHandler.WriteLine(values[i]);
             }
-            // listBox1.ClearSelected();
             fileHandler.setInit(true);
-            videoHandler.SetVideoList(fileList, count);
+            videoHandler.SetVideoList(values, count);
         }
         
         private void bAuto_Click(object sender, EventArgs e)
@@ -76,6 +76,7 @@ namespace VPlayer
         private void bMinus_Click(object sender, EventArgs e)
         {
             formHandler.RemoveItem(listBox1);
+            formHandler.setListMinus();
         }
         
         private void bUp_Click(object sender, EventArgs e)
