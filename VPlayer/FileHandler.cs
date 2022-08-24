@@ -48,15 +48,12 @@ namespace VPlayer
                 videos[0] = "0";
                 return videos;
             }
-            else
+            videos = File.ReadLines(path).ToArray();
+            for (int i = 0; i < counter; i++)
             {
-                videos = File.ReadLines(path).ToArray();
-                for (int i = 0; i < counter; i++)
-                {
-                    System.Console.WriteLine(videos[i]);
-                }
-                return videos;
+                System.Console.WriteLine(videos[i]);
             }
+            return videos;
         }
 
         public void setInit(bool reinit)

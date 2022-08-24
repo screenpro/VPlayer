@@ -54,7 +54,7 @@ namespace VPlayer
                 fileHandler.WriteLine(values[i]);
             }
             fileHandler.setInit(true);
-            videoHandler.SetVideoList(values, count);
+            videoHandler.PlayVideo(values, count);
         }
         
         private void bAuto_Click(object sender, EventArgs e)

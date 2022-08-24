@@ -39,6 +39,7 @@ namespace VPlayer
                 // Traverse the file array and add it to the listBox
                 for (int i = 0; i < files.Length; i++)
                 {
+                    paths[i] = "\"" + paths[i] + "\"";
                     listBox.Items.Add(files[i]);
                     dict.Add(files[i], paths[i]);
                     fullPath[i] = paths[i];
@@ -65,8 +66,6 @@ namespace VPlayer
             if (listBox.Items.Count == index)
             {
                 index--;
-                //listBox.SetSelected(newIndex, true);
-                //return;
             }
             // Otherwise simply reselect the index
             listBox.SetSelected(index, true);
